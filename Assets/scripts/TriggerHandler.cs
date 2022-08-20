@@ -57,6 +57,7 @@ namespace ItemsSorting
                 {
                     if(inneringCount < targetCount)
                     {
+                        other?.GetComponent<DestroyHandler>()?.DestroyFX();
                         Destroy(other.gameObject);
                         inneringCount++;
                         InnerValueChanged.Invoke(this, inneringCount);
