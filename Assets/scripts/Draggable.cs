@@ -32,6 +32,7 @@ namespace ItemsSorting
         {
             isDragging = true;
             _rigidbody.isKinematic = true;
+            this?.GetComponent<animation>()?.StartAnimate();
         }
 
         public void OnPointerUp(PointerEventData eventData)
@@ -41,6 +42,7 @@ namespace ItemsSorting
             _rigidbody.isKinematic = false;
             isDragging = false;
             _rigidbody.AddForce(Vector3.up * 150);
+            this?.GetComponent<animation>()?.StopAnimate();
         }
         private void Start()
         {

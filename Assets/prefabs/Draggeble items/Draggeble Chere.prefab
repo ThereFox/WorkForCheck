@@ -158,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: {r: 0.5772065, g: 0.01668743, b: 0.7075472, a: 1}
   _meshRenderer: {fileID: 2854937423227698614}
-  _timeOfAnimation: 0.3
+  _timeOfAnimation: 3
 --- !u!1 &7159996483412177400
 GameObject:
   m_ObjectHideFlags: 0
