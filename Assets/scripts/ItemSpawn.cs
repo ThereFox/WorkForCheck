@@ -6,10 +6,10 @@ namespace ItemsSorting
 {
     public class ItemSpawn : MonoBehaviour
     {
-        [SerializeField] private List<GameObject> _prefabs = new List<GameObject>();
-        [SerializeField] private List<Material> _materials = new List<Material>();
+        [SerializeField] private GameObject _prefab;
         [SerializeField] private int _count = 5;
-        [SerializeField] private float radius = 5;
+        [SerializeField] private Vector3 rotation;
+        [SerializeField] private float spead;
         [SerializeField] private Transform folder;
         private Transform transform;
 
@@ -22,17 +22,13 @@ namespace ItemsSorting
         {
             for (int i = 0; i <= _count; i++)
             {
-                var randomPrefabIndex = Random.Range(0, _prefabs.Count);
-                var randomPosition = new Vector3(Random.Range(transform.position.x - radius, transform.position.x + radius), Random.Range(0, radius), Random.Range(transform.position.z - radius, transform.position.z + radius));
-                var rabdomPrefab = Instantiate(_prefabs[randomPrefabIndex], randomPosition, new Quaternion(0f,0f,0f,0f));
-                var randomMaterialIndex = Random.Range(0, _materials.Count);
-                rabdomPrefab.GetComponent<Renderer>().sharedMaterial = _materials[randomMaterialIndex];
-
-                rabdomPrefab.GetComponent<Draggable>().color = (ItemColor)randomMaterialIndex;
+                var randomSpeed = Random.Range(spead - (0.1f * spead), spead + (0.1f * spead));
+                var rabdomPrefab = Instantiate(_prefab, transform.position, Quaternion.identity);
                 
                 rabdomPrefab.name = "draggableItem";
                 rabdomPrefab.transform.parent = folder;
-                yield return new WaitForSeconds(0.1f);
+                rabdomPrefab.GetComponent<Rigidbody>().AddForce(rotation * spead, ForceMode.Force);
+                yield return new WaitForSeconds(0.75f);
             }
             yield break;
         }

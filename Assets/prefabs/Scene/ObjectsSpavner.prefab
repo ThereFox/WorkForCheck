@@ -43,13 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80502d135d5bb7d44ba002265022c7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabs:
-  - {fileID: 541808466764454089, guid: 782d9c5d2ad0b104a98c828e058c0191, type: 3}
-  - {fileID: 4549593723439544702, guid: 9a7ea4ca674e4b54b97d11c42949df40, type: 3}
-  - {fileID: 2796072280750708573, guid: 0da7c1a5cf368a9489e508607da4c22f, type: 3}
-  _materials:
-  - {fileID: 2100000, guid: 7b9bfc367822bb848b19e3704dafaef8, type: 2}
-  - {fileID: 2100000, guid: 9ead4b701724e2047ab7c603edb0da48, type: 2}
+  _prefab: {fileID: 0}
   _count: 15
-  radius: 2.5
+  rotation: {x: 0, y: 0, z: 0}
+  spead: 150
   folder: {fileID: 0}
