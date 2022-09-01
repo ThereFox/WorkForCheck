@@ -296,6 +296,29 @@ PrefabInstance:
       propertyPath: folder
       value: 
       objectReference: {fileID: 253900247}
+    - target: {fileID: 2158474633637960192, guid: 1538724e227d68a4797ecad780d1b324,
+        type: 3}
+      propertyPath: _prefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2158474633637960192, guid: 1538724e227d68a4797ecad780d1b324,
+        type: 3}
+      propertyPath: _prefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 2796072280750708573, guid: 0da7c1a5cf368a9489e508607da4c22f,
+        type: 3}
+    - target: {fileID: 2158474633637960192, guid: 1538724e227d68a4797ecad780d1b324,
+        type: 3}
+      propertyPath: _prefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 4549593723439544702, guid: 9a7ea4ca674e4b54b97d11c42949df40,
+        type: 3}
+    - target: {fileID: 2158474633637960192, guid: 1538724e227d68a4797ecad780d1b324,
+        type: 3}
+      propertyPath: _prefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 541808466764454089, guid: 782d9c5d2ad0b104a98c828e058c0191,
+        type: 3}
     - target: {fileID: 2158474633637960193, guid: 1538724e227d68a4797ecad780d1b324,
         type: 3}
       propertyPath: m_RootOrder
