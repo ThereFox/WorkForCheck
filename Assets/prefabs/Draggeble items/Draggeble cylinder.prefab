@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff89d048466b725478622fc0585e5445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 0
+  color: 1
   isDragging: 0
 --- !u!114 &6783821803569678437
 MonoBehaviour:

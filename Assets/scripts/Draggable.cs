@@ -8,7 +8,7 @@ namespace ItemsSorting
     public class Draggable : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
     {
         private Rigidbody _rigidbody;
-        public ItemColor color;
+        public ItemType color;
         public bool isDragging;
 
         public void OnDrag(PointerEventData eventData)

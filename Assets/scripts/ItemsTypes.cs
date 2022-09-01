@@ -4,10 +4,11 @@ using UnityEngine;
 
 namespace ItemsSorting
 {
-    public enum ItemColor
+    public enum ItemType
     {
         Default = -1,
-        Red,
-        Purple
+        Box,
+        Magick,
+        Bottle
     }
 }

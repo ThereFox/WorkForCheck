@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff89d048466b725478622fc0585e5445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 0
+  color: 1
   isDragging: 0
 --- !u!114 &5739279295456778994
 MonoBehaviour:
@@ -156,7 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09f062f680d2b874ea3f3a9f0c43281f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: {r: 0.5772065, g: 0.01668743, b: 0.7075472, a: 1}
+  _startColor: {r: 0, g: 0, b: 0, a: 1}
+  _endColor: {r: 0, g: 0, b: 1, a: 1}
   _meshRenderer: {fileID: 2854937423227698614}
   _timeOfAnimation: 3
 --- !u!1 &7159996483412177400

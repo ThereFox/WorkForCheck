@@ -7,7 +7,7 @@ namespace ItemsSorting
 {
     public class TriggerHandler : MonoBehaviour
     {
-        [SerializeField] private ItemColor color;
+        [SerializeField] private ItemType color;
         private Material _material;
         private Color _default;
         private bool active;
@@ -47,6 +47,7 @@ namespace ItemsSorting
                     if (draggable.color == color)
                     {
                         _material.color = Color.green;
+                        GetComponent<animation>()?.StartAnimate();
                     }
                     else
                     {
