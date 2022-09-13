@@ -2071,7 +2071,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 321009942}
+  - component: {fileID: 321009943}
   - component: {fileID: 321009941}
   m_Layer: 0
   m_Name: Directional Light (1)
@@ -2142,20 +2142,25 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!4 &321009942
-Transform:
+--- !u!224 &321009943
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321009940}
   m_LocalRotation: {x: 0.3617739, y: -0, z: -0, w: 0.93226594}
-  m_LocalPosition: {x: 0, y: 6.67, z: -8.97}
+  m_LocalPosition: {x: 0, y: 0, z: -8.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 42.418, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 6.67}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &322248463
 GameObject:
   m_ObjectHideFlags: 0
@@ -14433,7 +14438,7 @@ PrefabInstance:
     - target: {fileID: 2158474633637960192, guid: 1538724e227d68a4797ecad780d1b324,
         type: 3}
       propertyPath: spead
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2158474633637960192, guid: 1538724e227d68a4797ecad780d1b324,
         type: 3}
@@ -14465,6 +14470,11 @@ PrefabInstance:
         type: 3}
       propertyPath: rotation.z
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2158474633637960192, guid: 1538724e227d68a4797ecad780d1b324,
+        type: 3}
+      propertyPath: maxDeltaPosition
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2158474633637960192, guid: 1538724e227d68a4797ecad780d1b324,
         type: 3}
