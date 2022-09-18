@@ -4,26 +4,26 @@ using UnityEngine;
 
 namespace ItemsSorting
 {
-    public class animation : MonoBehaviour
+    public class sizeAnimation : MonoBehaviour
     {
-        [SerializeField] private Color _startColor = Color.black;
-        [SerializeField] private Color _endColor = Color.blue;
-        [SerializeField] private MeshRenderer _meshRenderer;
+        [SerializeField] private Vector3 _endSize = Vector3.zero;
+        [SerializeField] private Transform _transform;
         [SerializeField] private float _timeOfAnimation = 0.3f;
         
         private bool animationContue = false;
-        private Material _material;
         private float _timeOfContueOfAnimation;
+        private GameObject item;
+        private Vector3 _startSize;
 
         private void Awake()
         {
-            _material = _meshRenderer.material;
+            _startSize = this.gameObject.transform.localScale;
         }
-
-        public void StartAnimate()
+        public void StartAnimate(GameObject gameObject)
         {
             if (animationContue)
                 return;
+            item = gameObject;
             _timeOfContueOfAnimation = 0;
             animationContue = true;
             StartCoroutine(runAnimation());
@@ -39,19 +39,18 @@ namespace ItemsSorting
 
         protected IEnumerator runAnimation()
         {
-            while (true)
-            {
                 while (_timeOfContueOfAnimation < _timeOfAnimation)
                 {
                     yield return new WaitForEndOfFrame();
 
-                    _material.color = Color.Lerp(_startColor, _endColor, Mathf.PingPong(2 * _timeOfContueOfAnimation / _timeOfAnimation, 1));
+                    _transform.transform.localScale = Vector3.Lerp(_startSize, _endSize, Mathf.PingPong(2 * _timeOfContueOfAnimation / _timeOfAnimation, 1));
+                    
                     _timeOfContueOfAnimation += Time.deltaTime;
 
                 }
                 animationContue = false;
                 _timeOfContueOfAnimation = 0;
-            }
+                Destroy(item.gameObject);
         }
         private void OnDestroy()
         {
