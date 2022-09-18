@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using System;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using ItemsSorting;
 
 namespace ItemsSorting
 {
-    public class First<TypeModel> : ScriptableObject where TypeModel : BaseModel, new()
+    public class First<TypeModel> : ScriptableObject, IStorable where TypeModel : BaseModel, new()
     {
         [SerializeField] protected TypeModel _model;
+
+        public UnityEvent OnLoad;
+        public UnityEvent OnSave;
+
 
         public TypeModel Model
         {
@@ -32,7 +38,7 @@ namespace ItemsSorting
             JsonUtility.FromJsonOverwrite(readedValue, model);
 
             Model = model;
-
+            OnLoad.Invoke();
             return true;
         }
 
@@ -64,6 +70,7 @@ namespace ItemsSorting
                 Debug.Log(ex.Message);
                 return false;
             }
+            OnSave.Invoke();
             return true;
         }
 

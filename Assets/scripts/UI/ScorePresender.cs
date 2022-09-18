@@ -11,7 +11,16 @@ namespace ItemsSorting
 
         public TMP_Text ScoreText => _scoreText;
 
-        private void Start()
+        private void OnEnable()
+        {
+            _skriptablePlayerData.OnLoad.AddListener(UpdateScore);
+        }
+        private void OnDisable()
+        {
+            _skriptablePlayerData.OnLoad.RemoveListener(UpdateScore);
+        }
+
+        public void UpdateScore()
         {
             ScoreText.text = _skriptablePlayerData.Model.Score.ToString();
         }
