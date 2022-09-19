@@ -46,7 +46,6 @@ namespace ItemsSorting
                     yield return new WaitForEndOfFrame();
 
                     _material.color = Color.Lerp(_startColor, _endColor, Mathf.PingPong(2 * _timeOfContueOfAnimation / _timeOfAnimation, 1));
-                    Mathf.PingPong(2 * _timeOfContueOfAnimation / _timeOfAnimation, 1);
                     _timeOfContueOfAnimation += Time.deltaTime;
 
                 }

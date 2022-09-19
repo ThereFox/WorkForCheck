@@ -59,7 +59,7 @@ namespace ItemsSorting
                     if(inneringCount < targetCount)
                     {
                         other?.GetComponent<DestroyHandler>()?.DestroyFX();
-                        Destroy(other.gameObject);
+                        other?.GetComponent<sizeAnimation>()?.StartAnimate(other.gameObject);
                         inneringCount++;
                         InnerValueChanged.Invoke(this, inneringCount);
                     }
