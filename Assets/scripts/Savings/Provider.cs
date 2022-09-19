@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.Events;
 using System.Threading.Tasks;
 
 
@@ -11,7 +11,27 @@ namespace ItemsSorting
     {
         [SerializeField] protected SkriptablePlayer _skriptablePlayerData;
 
+        public UnityEvent OnModelChange = new UnityEvent();
+
+        public UnityEvent OnDoesnotDecrement = new UnityEvent();
+
+
         public SkriptablePlayer skriptablePlayerData => _skriptablePlayerData;
+
+        protected void OnEnable()
+        {
+            _skriptablePlayerData.Model.OnValueChange.AddListener(OnModelChangeDelegate);
+        }
+
+        protected void OnDisable()
+        {
+            _skriptablePlayerData.Model.OnValueChange.RemoveListener(OnModelChangeDelegate);
+        }
+
+        protected void OnModelChangeDelegate()
+        {
+            OnModelChange.Invoke();
+        }
 
         public void IncrementUserScore(int ScoreStep)
         {
@@ -27,13 +47,15 @@ namespace ItemsSorting
             }
             else
             {
-                //Event           
+                OnDoesnotDecrement.Invoke();
             }
         }
 
         public async Task<bool> Load()
         {
+            _skriptablePlayerData.Model.OnValueChange.RemoveListener(OnModelChangeDelegate);
             return await skriptablePlayerData.Load();
+            _skriptablePlayerData.Model.OnValueChange.AddListener(OnModelChangeDelegate);
         }
         public async Task<bool> Save()
         {

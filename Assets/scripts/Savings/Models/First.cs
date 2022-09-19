@@ -10,7 +10,7 @@ using ItemsSorting;
 
 namespace ItemsSorting
 {
-    public class First<TypeModel> : ScriptableObject, IStorable where TypeModel : BaseModel, new()
+    public class First<TypeModel> : ScriptableObject, IStorable  where TypeModel : BaseModel, new()
     {
         [SerializeField] protected TypeModel _model;
 
@@ -28,7 +28,7 @@ namespace ItemsSorting
         {
             if (File.Exists(GetStoregePath(name)) == false)
             {
-                Debug.Log("non load missing dile");
+                Debug.Log("non load missing file");
                 return false;
             }
 

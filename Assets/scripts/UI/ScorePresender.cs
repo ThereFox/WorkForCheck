@@ -13,10 +13,12 @@ namespace ItemsSorting
 
         private void OnEnable()
         {
+            base.OnEnable();
             _skriptablePlayerData.OnLoad.AddListener(UpdateScore);
         }
         private void OnDisable()
         {
+            base.OnDisable();
             _skriptablePlayerData.OnLoad.RemoveListener(UpdateScore);
         }
 

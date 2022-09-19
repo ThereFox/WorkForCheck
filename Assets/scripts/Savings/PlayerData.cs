@@ -13,7 +13,9 @@ namespace ItemsSorting
 
         public string PlayerName {
             get { return _playerName; }
-            set { _playerName = value; }
+            set {
+                SetData(ref _playerName, value);
+            }
         }
 
         public int Score
@@ -22,9 +24,9 @@ namespace ItemsSorting
             set {
                 if (value >= 0)
                 {
-                    _score = value;
+                    SetData(ref _score, value);
                 }
-                else _score = 0;
+                else SetData(ref _score, 0); ;
                 
             }
         }
