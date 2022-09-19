@@ -37,6 +37,8 @@ namespace ItemsSorting
 
             JsonUtility.FromJsonOverwrite(readedValue, model);
 
+            Model.OnValueChange.RemoveAllListeners();
+
             Model = model;
             OnLoad.Invoke();
             return true;

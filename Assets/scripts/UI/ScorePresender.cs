@@ -26,5 +26,7 @@ namespace ItemsSorting
         {
             ScoreText.text = _skriptablePlayerData.Model.Score.ToString();
         }
+      
+
     }
 }

@@ -20,11 +20,13 @@ namespace ItemsSorting
 
         protected void OnEnable()
         {
+            _skriptablePlayerData.OnLoad.AddListener(OnLoadDelegate);
             _skriptablePlayerData.Model.OnValueChange.AddListener(OnModelChangeDelegate);
         }
 
         protected void OnDisable()
         {
+            _skriptablePlayerData.OnLoad.RemoveListener(OnLoadDelegate);
             _skriptablePlayerData.Model.OnValueChange.RemoveListener(OnModelChangeDelegate);
         }
 
@@ -51,15 +53,19 @@ namespace ItemsSorting
             }
         }
 
-        public async Task<bool> Load()
+        public async void Load()
         {
-            _skriptablePlayerData.Model.OnValueChange.RemoveListener(OnModelChangeDelegate);
-            return await skriptablePlayerData.Load();
+            await skriptablePlayerData.Load();
             _skriptablePlayerData.Model.OnValueChange.AddListener(OnModelChangeDelegate);
+
         }
-        public async Task<bool> Save()
+        public async void Save()
         {
-            return await skriptablePlayerData.Save();
+            await skriptablePlayerData.Save();
+        }
+        public void OnLoadDelegate()
+        {
+
         }
     }
 }
