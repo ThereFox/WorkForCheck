@@ -15659,7 +15659,7 @@ PrefabInstance:
     - target: {fileID: 2158474633637960192, guid: 1538724e227d68a4797ecad780d1b324,
         type: 3}
       propertyPath: _count
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2158474633637960192, guid: 1538724e227d68a4797ecad780d1b324,
         type: 3}
@@ -15680,12 +15680,12 @@ PrefabInstance:
     - target: {fileID: 2158474633637960192, guid: 1538724e227d68a4797ecad780d1b324,
         type: 3}
       propertyPath: rotation.y
-      value: -15
+      value: -13
       objectReference: {fileID: 0}
     - target: {fileID: 2158474633637960192, guid: 1538724e227d68a4797ecad780d1b324,
         type: 3}
       propertyPath: rotation.z
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2158474633637960192, guid: 1538724e227d68a4797ecad780d1b324,
         type: 3}
