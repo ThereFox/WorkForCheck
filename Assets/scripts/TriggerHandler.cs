@@ -47,10 +47,12 @@ namespace ItemsSorting
                     if (draggable.color == color)
                     {
                         _material.color = Color.green;
+                        GetComponent<UIIndicate>()?.StartAnimation(true);
                         GetComponent<animation>()?.StartAnimate();
                     }
                     else
                     {
+                        GetComponent<UIIndicate>()?.StartAnimation(false);
                         _material.color = Color.yellow;
                     }
                 }
@@ -76,6 +78,7 @@ namespace ItemsSorting
         {
             if (!active)
                 return;
+            GetComponent<UIIndicate>()?.StopAnimation();
             _material.color = _default;
         }
         private void OnDestroy()
