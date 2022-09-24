@@ -14,8 +14,17 @@ namespace ItemsSorting
         [Min(1)]
         private int targetCount = 1;
         private int inneringCount;
+
         public UnityEvent UrnFill;
         public UnityEvent<TriggerHandler, int> InnerValueChanged;
+
+
+        public UnityEvent OnNeededItemUpperInnering;
+        public UnityEvent OnAnoutherItemUpperInnering;
+
+        public UnityEvent OnItemUpperOuting;
+
+        public UnityEvent OnInneringNeededObject;
 
         public void SetCount(int value)
         {
@@ -47,12 +56,11 @@ namespace ItemsSorting
                     if (draggable.color == color)
                     {
                         _material.color = Color.green;
-                        GetComponent<UIIndicate>()?.StartAnimation(true);
-                        GetComponent<animation>()?.StartAnimate();
+                        OnNeededItemUpperInnering.Invoke();
                     }
                     else
                     {
-                        GetComponent<UIIndicate>()?.StartAnimation(false);
+                        OnAnoutherItemUpperInnering.Invoke();
                         _material.color = Color.yellow;
                     }
                 }
@@ -60,10 +68,12 @@ namespace ItemsSorting
                 {
                     if(inneringCount < targetCount)
                     {
+
                         other?.GetComponent<DestroyHandler>()?.DestroyFX();
                         other?.GetComponent<sizeAnimation>()?.StartAnimate(other.gameObject);
                         inneringCount++;
                         InnerValueChanged.Invoke(this, inneringCount);
+                        OnInneringNeededObject.Invoke();
                     }
                     if (inneringCount == targetCount)
                     {
@@ -78,7 +88,7 @@ namespace ItemsSorting
         {
             if (!active)
                 return;
-            GetComponent<UIIndicate>()?.StopAnimation();
+            OnItemUpperOuting.Invoke();
             _material.color = _default;
         }
         private void OnDestroy()

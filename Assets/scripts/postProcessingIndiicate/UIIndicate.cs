@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering.Universal;
 
 
 namespace ItemsSorting
@@ -20,24 +20,25 @@ namespace ItemsSorting
         private bool isRunning = false;
         private Vignette vignette;
 
+        private bool isTrueUrn = false;
+
         private void Start()
         {
-            /*
-            if (volume.profile.TryGet(out Vignette vignette) == false)
+            if (volume.profile.TryGet<Vignette>(out vignette) == false)
             {
                 return;
             }
-            */
         }
 
-        public void StartAnimation(bool isTrueUrn)
+        public void StartAnimation(bool IsTrueUrn)
         {
             if (isRunning || volume == null)
             {
                 return;
             }
+
+            isTrueUrn = IsTrueUrn;
             isRunning = true;
-            //vignette.color.Override(isTrueUrn ? trueColor : falseColor);
             StartCoroutine(AnimationCooruntime());
         }
         public void StopAnimation()
@@ -52,8 +53,19 @@ namespace ItemsSorting
 
         public IEnumerator AnimationCooruntime()
         {
+            vignette.color.Override(isTrueUrn ? trueColor : falseColor);
             var iter = 0f;
-            var lastValue = 0f;
+            var lastValue = volume.weight;
+
+            while (volume.weight > startValue)
+            {
+                yield return new WaitForEndOfFrame();
+                volume.weight = Mathf.Lerp(lastValue, 0, Mathf.Sin(iter));
+                iter += Time.deltaTime * 4f;
+            }
+
+            iter = 0f;
+            lastValue = volume.weight;
 
             while (volume.weight < startValue - (startValue * 0.3) && isRunning)
             {
