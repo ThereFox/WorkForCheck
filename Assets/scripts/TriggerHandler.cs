@@ -71,6 +71,7 @@ namespace ItemsSorting
 
                         other?.GetComponent<DestroyHandler>()?.DestroyFX();
                         other?.GetComponent<sizeAnimation>()?.StartAnimate(other.gameObject);
+                        Destroy(draggable);
                         inneringCount++;
                         InnerValueChanged.Invoke(this, inneringCount);
                         OnInneringNeededObject.Invoke();
