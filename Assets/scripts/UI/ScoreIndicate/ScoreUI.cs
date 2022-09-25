@@ -25,8 +25,8 @@ namespace ItemsSorting
             ScoreText.text = $"{++CurrentCount} / {CurrentMaxCount}";
             if (CurrentCount >= CurrentMaxCount)
             {
-                //ScoreText.enabled = false;
-                //fullImage.enabled = true;
+                ScoreText.gameObject.SetActive(false);
+                fullImage.gameObject.SetActive(true);
                 return;
             }
             
