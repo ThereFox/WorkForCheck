@@ -10,10 +10,12 @@ namespace ItemsSorting
         public UnityEvent GameEnd;
 
         [SerializeField] private List<UrnParametrs> _urns;
-        private int filledUrns;
         [SerializeField]private SceneChanger changer;
 
         [SerializeField]private List<ScoreUI> scoreUIs;
+
+        private int filledUrns;
+
         private void Start()
         {
             filledUrns = 0;
