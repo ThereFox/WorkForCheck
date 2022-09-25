@@ -6,7 +6,7 @@ namespace ItemsSorting
     public class SceneChanger : MonoBehaviour
     {
         private int currentSceneId = 0;
-        private int sceneCount = 1;
+        private int sceneCount = 2;
 
         private void Start()
         {
