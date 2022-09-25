@@ -1,12 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System;
 using System.IO;
-using System.Threading;
 using System.Threading.Tasks;
-using ItemsSorting;
 
 namespace ItemsSorting
 {

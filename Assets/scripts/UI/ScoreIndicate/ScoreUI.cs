@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
-using UnityEngine.UIElements.Experimental;
+using UnityEngine.UI;
 using TMPro;
 
 namespace ItemsSorting
@@ -10,13 +7,12 @@ namespace ItemsSorting
     public class ScoreUI : MonoBehaviour
     {
         [SerializeField] private TMP_Text ScoreText;
-        [SerializeField] private GameObject fullImage;
+        [SerializeField] private Image fullImage;
         [SerializeField] private int _id;
         public int Id { get { return _id; } }
 
         private int CurrentCount = 0;
         private int CurrentMaxCount = 0;
-        private EndGameHandler handler;
 
         private void Start()
         {
@@ -25,22 +21,24 @@ namespace ItemsSorting
 
         public void ScoreUpdateHandler()
         {
+
+            ScoreText.text = $"{++CurrentCount} / {CurrentMaxCount}";
             if (CurrentCount >= CurrentMaxCount)
             {
-                ScoreText.enabled = false;
-                fullImage.SetActive(true);
+                //ScoreText.enabled = false;
+                //fullImage.enabled = true;
                 return;
             }
-            ScoreText.text = $"{++CurrentCount} / {CurrentMaxCount}";
             
         }
         public void setMaxCount(int newValue)
         {
-            if(newValue >= 0)
+            if (newValue <= 0)
             {
+                return;
+            }
                 CurrentMaxCount = newValue;
                 ScoreText.text = $"{CurrentCount} / {CurrentMaxCount}";
-            }
         }
     }
 }

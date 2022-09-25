@@ -6382,7 +6382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreText: {fileID: 1841213632}
-  fullImage: {fileID: 943204378}
+  fullImage: {fileID: 943204380}
   _id: 1
 --- !u!1 &943204378
 GameObject:
@@ -8523,7 +8523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreText: {fileID: 1675811767}
-  fullImage: {fileID: 841432565}
+  fullImage: {fileID: 841432567}
   _id: 2
 --- !u!1 &1145345931
 GameObject:
